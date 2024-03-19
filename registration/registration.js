@@ -4,7 +4,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
 const ignInput = document.getElementById('ign');
-const errorDisplay = document.createElement('p'); // Create element for error messages
+const errorDisplay = document.createElement('p'); 
 
 function generateTrainerId() {
   let trainerId = '';
@@ -18,8 +18,8 @@ generateTrainerId();
 
 function showError(message) {
   errorDisplay.textContent = message;
-  errorDisplay.style.color = 'red'; // Set error message color to red
-  registerForm.insertBefore(errorDisplay, registerForm.firstChild); // Insert error message at the top of the form
+  errorDisplay.style.color = 'red'; 
+  registerForm.insertBefore(errorDisplay, registerForm.firstChild); 
 }
 
 function validateEmail(email) {
@@ -28,12 +28,12 @@ function validateEmail(email) {
 }
 
 function validatePassword(password) {
-  // Implement your desired password complexity rules here (e.g., minimum length, character types)
-  return password.length >= 8; // Example: password must be at least 8 characters long
+  
+  return password.length >= 8; 
 }
 
 registerForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
+  event.preventDefault();
 
   let errorMessage = '';
 
@@ -41,8 +41,8 @@ registerForm.addEventListener('submit', function(event) {
   if (!validateEmail(emailInput.value)) {
     errorMessage = 'Please enter a valid email address.';
   } else if (!validatePassword(passwordInput.value)) {
-    errorMessage = 'Password must be at least 8 characters long.'; // Update based on your password complexity rules
-    passwordInput.style.borderColor = 'red'; // Set password input border color to red for visual cue
+    errorMessage = 'Password must be at least 8 characters long.'; 
+    passwordInput.style.borderColor = 'red'; 
   } else if (passwordInput.value !== confirmPasswordInput.value) {
     errorMessage = 'Passwords do not match.';
   } else if (!ignInput.value) {
